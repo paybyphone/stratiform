@@ -61,4 +61,12 @@ EOH
 def dsl_mock_and_load(dsl)
   allow(dsl).to receive(:read_stratifile).and_return(MOCK_STRATIFILE)
   dsl.load_stratifile
+  dsl.targets.each do |target|
+    allow(target).to receive(:sts_client).and_return(
+      Aws::STS::Client.new(stub_responses: true)
+    )
+  end
+  dsl.stacks.each do |stack|
+    add_stack_mocks(stack)
+  end
 end
