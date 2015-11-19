@@ -38,7 +38,8 @@ module Stratiform
           "target #{target_name} is not a member of stack #{stack_name}"
         )
       end
-      @run_data[target_name][stack_name] = stack.create_stack(target)
+      task_rundata = @run_data[target_name][stack_name]
+      task_rundata['stack_id'] = stack.create_stack(target)
     end
 
     def load_stratifile

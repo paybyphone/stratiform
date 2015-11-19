@@ -25,8 +25,8 @@ describe Stratiform::Stack do
     it 'creates the stack' do
       add_stack_mocks(stack)
       target = mock_target
-      resp = stack.create_stack(target)
-      expect(resp.stack_id).to eq('StackId')
+      stack_id = stack.create_stack(target)
+      expect(stack_id).to eq('StackId')
     end
   end
 end

@@ -43,10 +43,11 @@ module Stratiform
         target.region,
         target.target_credentials
       )
-      cloudformation.create_stack(
+      resp = cloudformation.create_stack(
         stack_name: @name,
         template_body: read_template
       )
+      resp.stack_id
     end
 
     def read_template

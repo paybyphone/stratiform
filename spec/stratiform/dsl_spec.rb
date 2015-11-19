@@ -67,8 +67,8 @@ describe Stratiform::DSL do
       dsl = Stratiform::DSL.new
       dsl_mock_and_load(dsl)
       dsl.run_create('test-target', 'test-stack')
-      resp = dsl.run_data['test-target']['test-stack']
-      expect(resp.stack_id).to eq('StackId')
+      stack_id = dsl.run_data['test-target']['test-stack']['stack_id']
+      expect(stack_id).to eq('StackId')
     end
   end
 end
