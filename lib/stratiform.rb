@@ -1,1 +1,3 @@
-# does nothing until I say it does something ;)
+require 'stratiform/main'
+
+Stratiform::Main.start
