@@ -71,14 +71,4 @@ describe Stratiform::DSL do
       expect(resp.stack_id).to eq('StackId')
     end
   end
-
-  describe '#report_actions' do
-    it 'expects text to be output' do
-      dsl = Stratiform::DSL.new
-      dsl_mock_and_load(dsl)
-      dsl.run_actions
-      text = dsl.report_actions
-      expect(text).to_not be_empty
-    end
-  end
 end
