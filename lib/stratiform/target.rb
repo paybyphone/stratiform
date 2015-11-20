@@ -1,12 +1,9 @@
 require 'aws-sdk'
 require 'securerandom'
-require 'stratiform/helpers/aws'
 
 module Stratiform
   # Target resource - define a target AWS account for deployment
   class Target
-    include Stratiform::Helpers::Aws
-
     def initialize(name, &block)
       @name = name
       instance_eval(&block) unless block.nil?
@@ -30,7 +27,7 @@ module Stratiform
     def target_credentials
       session_id = "#{@name}-#{SecureRandom.hex(8)}"
       Aws::AssumeRoleCredentials.new(
-        client: sts_client(@region),
+        client: Aws::STS::Client.new,
         role_arn: @role_arn,
         role_session_name: session_id
       ).credentials

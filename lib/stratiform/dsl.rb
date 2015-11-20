@@ -39,7 +39,7 @@ module Stratiform
         )
       end
       task_rundata = @run_data[target_name][stack_name]
-      task_rundata['stack_id'] = stack.create_stack(target)
+      task_rundata['stack_id'] = stack.create_stack
     end
 
     def load_stratifile

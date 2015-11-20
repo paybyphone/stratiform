@@ -15,8 +15,7 @@ describe Stratiform::Stack do
   describe '#validate_template' do
     it 'validates the template' do
       add_stack_mocks(stack)
-      target = mock_target
-      resp = stack.validate_template(target)
+      resp = stack.validate_template
       expect(resp.description).to eq('Description')
     end
   end
@@ -24,8 +23,7 @@ describe Stratiform::Stack do
   describe '#create_stack' do
     it 'creates the stack' do
       add_stack_mocks(stack)
-      target = mock_target
-      stack_id = stack.create_stack(target)
+      stack_id = stack.create_stack
       expect(stack_id).to eq('StackId')
     end
   end
