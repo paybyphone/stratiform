@@ -1,10 +1,6 @@
-require 'stratiform/helpers/aws'
-
 module Stratiform
   # Stack resource - define stacks that are going to be created.
   class Stack
-    include Stratiform::Helpers::Aws
-
     def initialize(name, &block)
       @name = name
       instance_eval(&block) if block
