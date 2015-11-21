@@ -38,14 +38,4 @@ describe Stratiform::DSL do
       expect(dsl.stacks['test-stack'].name).to eq('test-stack')
     end
   end
-
-  describe '#run_create' do
-    it 'logs the stack ID for a run' do
-      dsl = Stratiform::DSL.new
-      dsl_mock_and_load(dsl)
-      dsl.run_create('test-target', 'test-stack')
-      stack_id = dsl.run_create('test-target', 'test-stack')
-      expect(stack_id).to eq('StackId')
-    end
-  end
 end
