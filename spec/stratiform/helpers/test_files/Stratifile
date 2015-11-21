@@ -1,0 +1,8 @@
+target 'test-target' do
+  role_arn 'arn:aws:iam::123456789012:role/stratiform-admin'
+  region 'us-east-1'
+end
+
+stack 'test-stack' do
+  targets ['test-target']
+end
