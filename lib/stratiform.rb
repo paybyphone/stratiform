@@ -1,3 +1,3 @@
-require 'stratiform/main'
+require 'stratiform/cli'
 
-Stratiform::Main.start
+Stratiform::CLI.start
