@@ -55,9 +55,9 @@ MOCK_STRATIFILE = <<-EOH.gsub(/^ {2}/, '')
 EOH
 
 def dsl_mock_and_load(dsl)
-  allow(dsl).to receive(:read_stratifile).and_return(MOCK_STRATIFILE)
+  allow(Stratiform::DSL).to receive(:read_stratifile).and_return(MOCK_STRATIFILE)
   dsl.load_stratifile
-  dsl.stacks.each do |stack|
+  dsl.stacks.values.each do |stack|
     add_stack_mocks(stack)
   end
 end
